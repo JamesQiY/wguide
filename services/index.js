@@ -44,8 +44,8 @@ export const getRecentPosts = async () => {
   const query = gql`
     query GetRecentPosts {
       posts(
-        orderBy: createdAt_ASC
-        last: 3
+        orderBy: createdAt_DESC
+        first: 3
       ) {
         title
         featuredImage {
@@ -64,7 +64,7 @@ export const getRecentPosts = async () => {
 export const getCategories = async () => {
   const query = gql`
   query GetCategories {
-    categories {
+      categories {
       name
       slug
     }
@@ -137,6 +137,5 @@ export const GetCategoriesPosts = async (slug) => {
   }
 `;
   const result = await request(graphqlAPI, query, { slug });
-  console.log(result)
   return result.postsConnection.edges;
 }

@@ -8,13 +8,16 @@ const CategoriesWidget = () => {
   const [Categories, setcategories] = useState([])
 
   useEffect(() => {
-    getCategories().then(
-      (res) => setcategories(res))
-      
-  }, [])
+    const fetchData = async () => {
+      const data = await getCategories()
+      setcategories(data)
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className='bg-white shadow-lg rounded-lg px-4 pt-4 pb-2 m-8'>
+      <span className='text-center'>Categories</span>
       {Categories.map((Cate) => (
         <Link href={`/categories/${Cate.slug}`} key={Cate.name}>
           <div className='flex flex-row item-center w-full 
