@@ -17,14 +17,14 @@ const Header = () => {
       <div className="w-full incline-block py-8">
         <div className="md:float-left block">
           <Link href='/'>
-            <span className='cursor-pointer front-bold text-4xl text-white'>
+            <span className='cursor-pointer font-bold text-4xl text-white'>
               Wguides
             </span>
           </Link>
         </div>
         <div className='hideen md:float-left md:contents'>
           {Categories.map((catagories)=> (<Link key={catagories.name} href={`/categories/${catagories.slug}`}>
-            <span className='md:float-right mt-2 align-middle text-white ml-4'> 
+            <span className='md:float-right mt-2 p-2 align-middle text-white ml-4 cursor-pointer border-2 rounded-xl'> 
             {catagories.name}</span>
           </Link>))}
         </div>

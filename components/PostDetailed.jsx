@@ -7,7 +7,7 @@ const PostDetailed = ({ post }) => {
 
   return (
     <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 mb-8'>
-      <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
+      <h1 className="mb-8 text-3xl font-semibold p-4">{post.title}</h1>
       <div className='relative overflow-hidden mb-8 shadow-md rounded-lg'>
         <img
           src={post.featuredImage.url}
@@ -28,7 +28,7 @@ const PostDetailed = ({ post }) => {
         </div>
         <span className='my-auto mx-4 inline '>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
       </div>
-      <div className='m-4 mb-8 p-2'>
+      <div className='m-4 mb-8 p-2 content-container'>
         <RichText content={post.content.raw}
           renderers={{
             h1: ({ children }) => <h1>{children}</h1>,
@@ -41,6 +41,8 @@ const PostDetailed = ({ post }) => {
             ul: ({ children }) => <ul className='list-disc list-inside'>{children}</ul>,
             ol: ({ children }) => <ol className='list-disc list-inside'>{children}</ol>,
             li: ({ children }) => <li>{children}</li>,
+            table: ({ children }) => <div className='overflow-scroll'><table className='my-2 border-2 '>{children}</table></div>,
+            table_cell: ({ children }) => <td className='p-1 border-2'>{children}</td>,
           }} />
       </div>
     </div>

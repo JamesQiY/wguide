@@ -19,8 +19,8 @@ const PostWidget = () => {
         <Link href={`/posts/${post.slug}`} key={index}>
           <div className='flex flex-row item-center w-full 
             mb-2 px-2 cursor-pointer rounded-lg bg-green-300 shadow-md'>
-              <BsFillSignpostFill size='2rem' className='block my-auto mx-0 h-6 w-6 text-white'/>
-            <div className='m-2'>
+            <div className='block my-auto mx-0 h-6 w-6 flex-0 text-white'><BsFillSignpostFill size='25px' /></div>
+            <div className='m-2 overflow-hidden'>
               <p className='py-1 px-2 rounded-lg bg-white text-gray-800'>{moment(post.createdAt).format('MMM DD, YYYY')}</p>
               <span className='my-auto p-auto w-full'>{post.title}</span>
             </div>
