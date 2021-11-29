@@ -113,6 +113,7 @@ export const GetCategoriesPosts = async (slug) => {
         node {
           createdAt
           title
+          excerpt
           slug
           featuredImage {
             url
