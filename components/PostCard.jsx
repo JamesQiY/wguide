@@ -1,0 +1,44 @@
+import React from 'react'
+import moment from 'moment'
+import Link from 'next/link'
+
+const PostCard = ({ post }) => {
+  return (
+    <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 mb-8'>
+      <div className='relative overflow-hidden shadow-md rounded-lg pb-8'>
+        <img
+          src={post.featuredImage.url}
+          alt={post.title}
+          className='object-top abosolute h-80 w-full object-cover shadow-lg rounded-lg lg:rounded-lg'
+        />
+        <h1 className='transition duration-500 text-center my-4 cursor-pointer hover:text-pink-600 text-3xl font-semibold'>
+          <Link href={`/posts/${post.slug}`}>
+            {post.title}
+          </Link>
+        </h1>
+        <div className='flex flex-col text-center items-center justify-center mb-4 w-full'>
+          <div className='flex items-center justify-center mb-4 lg:mb-0 w-auto bg-pink-400 rounded-3xl '>
+            <img
+              src={post.author.photo.url}
+              alt={post.author.name}
+              height='40px'
+              width='40px'
+              className='align-middle rounded-full border-2 border-red-400'
+            />
+            <p className='inline align-middle text-gray-700 mx-4 text-lg break-words'>Author: {post.author.name}</p>
+          </div>
+          <span className='my-1'>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
+          <span className='m-2 px-4'>{post.excerpt}</span>
+        </div>
+        <div className='flex items-center justify-center '>
+          <Link href={`/posts/${post.slug}`}>
+            <span className='my-2 mx-auto px-4 py-2 text-center font-bold text-lg rounded-full cursor-pointer
+            text-white bg-pink-400 transition duration-500 hover:bg-pink-600'>Continue</span>
+          </Link>
+        </div>
+      </div>
+    </div >
+  )
+}
+
+export default PostCard
