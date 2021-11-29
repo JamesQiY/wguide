@@ -7,6 +7,8 @@ export const getPosts = async () => {
     query MyQuery {
       postsConnection (
         where: {featured: true}
+        orderBy: createdAt_DESC
+        last: 3
         ){
         edges {
           node {
