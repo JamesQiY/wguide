@@ -11,7 +11,7 @@ const PostDetailed = ({ post }) => {
         <img
           src={post.featuredImage?.url}
           alt={post.title}
-          className='object-top abosolute h-80 w-full object-cover shadow-lg rounded-lg lg:rounded-lg'
+          className='object-top abosolute h-auto w-full object-cover shadow-lg rounded-lg lg:rounded-lg'
         />
       </div>
       <div className='flex text-center items-center justify-center mb-8 w-full'>
