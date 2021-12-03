@@ -8,7 +8,7 @@ export const getPosts = async () => {
       postsConnection (
         where: {featured: true}
         orderBy: createdAt_DESC
-        last: 3
+        last: 5
         ){
         edges {
           node {

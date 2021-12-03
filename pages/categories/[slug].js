@@ -22,7 +22,9 @@ const CategoriesListed = () => {
   return (
     <>
       <div className="container mx-auto px-10 mb-8">
+        <title>Wguides</title>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* <span className='block text-lg font-bold'>{}</span> */}
           <div className="col-span-1 lg:col-span-8">
             {posts.map((post, index) => <PostCard post={post.node} key={index} />)}
           </div>
