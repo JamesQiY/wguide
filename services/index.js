@@ -139,3 +139,17 @@ export const GetCategoriesPosts = async (slug) => {
   const result = await request(graphqlAPI, query, { slug });
   return result.postsConnection.edges;
 }
+
+export const getLinks = async () => {
+  const query = gql`
+  query getLinks {
+    links(orderBy: title_ASC) {
+      address
+      description
+      title
+    }
+  }
+  `
+  const result = await request(graphqlAPI, query)
+  return result.links;
+}
