@@ -3,11 +3,13 @@ import { useRouter } from 'next/router';
 
 import { CategoriesWidget, PostWidget, PostCard } from '../../components';
 import { GetCategoriesPosts } from '../../services';
+import SearchBox from '../../components/SearchBox';
 
 const CategoriesListed = () => {
+  // post related
+  const [posts, setposts] = useState([])
   const router = useRouter();
 
-  const [posts, setposts] = useState([])
   const { slug } = router.query;
   useEffect(() => {
     if (!slug) return;
@@ -19,16 +21,26 @@ const CategoriesListed = () => {
     fetchData();
   }, [slug]);
 
+  // search related
+  const [search, setsearch] = useState('')
+  const handleChange = (e) => {
+    setsearch(e.target.value)
+  }
+  const filteredPosts = posts.filter(post => (
+    post.node.title.toLowerCase().includes(search.toLowerCase())
+  ))
+
   return (
     <>
       <div className="container mx-auto px-10 mb-8">
         <title>Wguides</title>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">
-            {posts.map((post, index) => <PostCard post={post.node} key={index} />)}
+            {filteredPosts.map((post, index) => <PostCard post={post.node} key={index} />)}
           </div>
           <div className="col-span-1 lg:col-span-4">
             <div className="relative lg:sticky top-8">
+              <SearchBox placeholder='search' handleChange={handleChange} />
               <PostWidget />
               <CategoriesWidget />
             </div>

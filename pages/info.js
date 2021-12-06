@@ -7,7 +7,7 @@ const info = ({ links }) => {
     <div className="container mx-auto px-10 mb-8">
       <title>Wguides</title>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className='lg:col-span-8 col-span-1'>
+        <div className='lg:col-span-12 col-span-1'>
           <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 mb-8'>
             <div className='text-lg m-4 p-4 text-center'>Information and links</div>
             <p className='mb-4 text-center'>This site is a collection of Wargroove related guides in a blog style.
@@ -26,12 +26,6 @@ const info = ({ links }) => {
                 </div>
               )}
             </div>
-          </div>
-        </div>
-        <div className="col-span-1 lg:col-span-4">
-          <div className="relative lg:sticky top-8">
-            <PostWidget />
-            <CategoriesWidget />
           </div>
         </div>
       </div>
