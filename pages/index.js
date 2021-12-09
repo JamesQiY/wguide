@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import {PostCard, CategoriesWidget, PostWidget } from '../components'
-import {getPosts} from '../services'
+import { PostCard, CategoriesWidget, PostWidget } from '../components'
+import { getPosts } from '../services'
 import SearchBox from '../components/SearchBox'
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 
-export default function Home({posts}) {
+export default function Home({ posts }) {
   const [search, setsearch] = useState('')
 
   const handleChange = (e) => {
@@ -20,6 +20,10 @@ export default function Home({posts}) {
       <Head>
         <title>Wguides</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:image" content="https://wargroove.com/wp-content/uploads/2018/11/Vector_Logo.png" />
+        <meta property="og:description" content="Online Collection of Wargroove Guides" />
+        <meta property="og:url" content="https://wguide.vercel.app/" />
+        <meta property="og:title" content="Wguides - Wargroove Guides" />
       </Head>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='lg:col-span-8 col-span-1'>
@@ -27,7 +31,7 @@ export default function Home({posts}) {
         </div>
         <div className='lg:col-span-4 col-span-1'>
           <div className='lg:sticky relative top-8'>
-            <SearchBox placeholder='search' handleChange={handleChange}/>
+            <SearchBox placeholder='search' handleChange={handleChange} />
             <PostWidget />
             <CategoriesWidget />
           </div>
@@ -40,7 +44,7 @@ export default function Home({posts}) {
 export async function getStaticProps() {
   const posts = (await getPosts()) || []
   return {
-    props: {posts},
+    props: { posts },
     revalidate: 60
   }
 }
