@@ -23,7 +23,7 @@ const Header = () => {
         </div>
         <Link href='/info'>
           <span className='float-left m-2 md:ml-8 py-1 px-4 align-middle text-white cursor-pointer border-2 rounded-xl bg-green-400'>
-            Info
+            Info & Links
           </span>
         </Link>
 
