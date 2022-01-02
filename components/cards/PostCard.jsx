@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const PostCard = ({ post }) => {
   return (
-    <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 mb-8'>
+    <div className='post-container'>
       <div className='relative overflow-hidden shadow-md rounded-lg pb-8'>
         <Link href={`/posts/${post.slug}`}>
           <img
@@ -13,13 +13,13 @@ const PostCard = ({ post }) => {
             className='object-top abosolute h-80 w-full object-cover shadow-lg rounded-lg lg:rounded-lg cursor-pointer'
           />
         </Link>
-        <h1 className='transition duration-500 text-center my-4 cursor-pointer hover:text-pink-600 text-3xl font-semibold'>
+        <h1 className='transition duration-500 text-center my-4 cursor-pointer hover:text-blue-600 text-3xl font-semibold'>
           <Link href={`/posts/${post.slug}`}>
             {post.title}
           </Link>
         </h1>
         <div className='flex flex-col text-center items-center justify-center mb-4 w-full'>
-          <div className='flex items-center justify-center mb-4 lg:mb-0 w-auto bg-pink-400 rounded-3xl '>
+          <div className='flex items-center justify-center mb-4 lg:mb-0 w-auto bg-blue-400 rounded-3xl '>
             <img
               src={post.author.photo.url}
               alt={post.author.name}
@@ -35,7 +35,7 @@ const PostCard = ({ post }) => {
         <div className='flex items-center justify-center '>
           <Link href={`/posts/${post.slug}`}>
             <span className='my-2 mx-auto px-4 py-2 text-center font-bold text-lg rounded-full cursor-pointer
-            text-white bg-pink-400 transition duration-500 hover:bg-pink-600'>Continue</span>
+            text-white bg-blue-400 transition duration-500 hover:bg-blue-600'>Continue</span>
           </Link>
         </div>
       </div>

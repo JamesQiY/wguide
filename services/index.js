@@ -110,7 +110,10 @@ export const getPostDetails = async (slug) => {
 export const GetCategoriesPosts = async (slug) => {
   const query = gql`
   query GetCategoriesPosts($slug: String!) {
-    postsConnection(where: {categories_some: {slug: $slug}}) {
+    postsConnection(
+      where: {categories_some: {slug: $slug}}
+      orderBy: createdAt_DESC
+    ) {
       edges {
         node {
           createdAt
@@ -135,6 +138,7 @@ export const GetCategoriesPosts = async (slug) => {
       }
     }
   }
+  
 `;
   const result = await request(graphqlAPI, query, { slug });
   return result.postsConnection.edges;
@@ -153,3 +157,47 @@ export const getLinks = async () => {
   const result = await request(graphqlAPI, query)
   return result.links;
 }
+
+export const getRecentUpdates = async () => {
+  const query = gql`
+  query getRecentUpdates {
+    updates(orderBy: createdAt_DESC, first: 5) {
+      createdAt
+      slug
+      title
+      authors {
+        name
+        photo {
+          url
+        }
+      }
+    }
+  }
+  `
+  const result = await request(graphqlAPI, query)
+  return result.updates;
+}
+
+export const getUpdateDetails = async (slug) => {
+  const query = gql`
+  query getUpdateDetails($slug: String!) {
+    update(where: {slug: $slug}) {
+      title
+      slug
+      content {
+        raw
+      }
+      createdAt
+      authors {
+        name
+        photo {
+          url
+        }
+      }
+    }
+  }
+  `
+  const result = await request(graphqlAPI, query, {slug})
+  return result.update;
+}
+

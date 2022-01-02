@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { CategoriesWidget, PostWidget, PostCard } from '../../components';
+import { CategoriesWidget, PostWidget, PostCard, SearchBox} from '../../components';
 import { GetCategoriesPosts } from '../../services';
-import SearchBox from '../../components/SearchBox';
 
 const CategoriesListed = () => {
   // post related

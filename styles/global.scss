@@ -4,6 +4,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
+@layer components {
+  .widget {
+    @apply bg-white shadow-lg rounded-b-3xl rounded-t-lg px-4 pt-4 pb-2 my-8 mx-2
+  }
+
+  .post-container {
+    @apply bg-white shadow-lg rounded-b-3xl rounded-t-lg p-0 lg:p-8 mb-8
+  }
+}
+
 html,
 body {
   padding: 0;
@@ -12,14 +22,14 @@ body {
   &:before{
     content:'';
     content: "";
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-image: url("../public/bg.png");
     position: fixed;
     left: 0;
     top: 0;
     z-index: -1;
-    background-position: 50% 50%;
+    background-position: 0% 0%;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -37,4 +47,9 @@ a {
 .content-container p {
   padding: 2px;
   margin-top: 1rem;
+  opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+	animation-duration: 0.5s;
 }

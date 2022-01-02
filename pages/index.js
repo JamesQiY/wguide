@@ -1,8 +1,6 @@
-import Head from 'next/head'
-import { PostCard, CategoriesWidget, PostWidget } from '../components'
+import { PostCard, SearchBox, SideWidgets } from '../components'
 import { getPosts } from '../services'
-import SearchBox from '../components/SearchBox'
-import React, { useState } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 
 export default function Home({ posts }) {
   const [search, setsearch] = useState('')
@@ -14,32 +12,51 @@ export default function Home({ posts }) {
   const filteredPosts = posts.filter(post => (
     post.node.title.toLowerCase().includes(search.toLowerCase())
   ))
+  
+  let breakpoint = useMediaQuery(640)
 
   return (
-    <div className="container mx-auto px-10 mb-8 b-gray-100">
-      <Head>
-        <title>Wguides</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:image" content="https://wargroove.com/wp-content/uploads/2018/11/Vector_Logo.png" />
-        <meta property="og:description" content="Online Collection of Wargroove Guides" />
-        <meta property="og:url" content="https://wguide.vercel.app/" />
-        <meta property="og:title" content="Wguides - Wargroove Guides" />
-      </Head>
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+    <div className="container mx-auto px-10 mb-8">
+      <div className='grid grid-cols-1 lg:grid-cols-12 gap-8'>
+        {breakpoint ? <SearchBox placeholder='search' handleChange={handleChange} /> : <></> }
         <div className='lg:col-span-8 col-span-1'>
           {filteredPosts.map((post, index) => <PostCard post={post.node} key={index} />)}
         </div>
-        <div className='lg:col-span-4 col-span-1'>
-          <div className='lg:sticky relative top-8'>
-            <SearchBox placeholder='search' handleChange={handleChange} />
-            <PostWidget />
-            <CategoriesWidget />
-          </div>
-        </div>
+        <SideWidgets>
+          {!breakpoint ? <SearchBox placeholder='search' handleChange={handleChange} /> : <></> }
+        </SideWidgets>
       </div>
     </div>
   )
 }
+
+// https://github.com/vercel/next.js/discussions/14810
+const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addListener(updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeListener(updateTarget);
+  }, []);
+
+  return targetReached;
+};
+
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || []

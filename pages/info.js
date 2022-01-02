@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { getLinks } from '../services'
-import SearchBox from '../components/SearchBox'
+import SearchBox from '../components/widgets/SearchBox'
 
 const info = ({ links }) => {
   const [search, setsearch] = useState('')
@@ -18,7 +18,7 @@ const info = ({ links }) => {
       <title>Wguides</title>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className='lg:col-span-12 col-span-1'>
-          <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 mb-8'>
+          <div className='post-container'>
             <div className='text-xl m-4 p-4 text-center font-bold'>Information and links</div>
             <p className='mb-4 p-1 text-center'>This site is a collection of Wargroove related guides in a blog style.
               Made by jams. If you have any questions or suggestions, you can find me in the official wargroove discord.
