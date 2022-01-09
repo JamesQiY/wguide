@@ -4,13 +4,13 @@ import RichTextWrapper from './RichTextWrapper';
 
 const PostDetailed = ({ post }) => {
   return (
-    <div className='post-container'>
+    <div className='post-container fade-in'>
       <h1 className="mb-8 text-3xl font-semibold p-4">{post.title}</h1>
-      <div className='relative overflow-hidden mb-8 shadow-md rounded-lg'>
+      <div className='relative overflow-hidden mb-8 shadow-md'>
         <img
           src={post.featuredImage?.url}
           alt={post.title}
-          className='object-top abosolute h-auto w-full object-cover shadow-lg rounded-lg lg:rounded-lg'
+          className='rounded-lg h-auto max-h-80 w-full object-cover lg:rounded-lg'
         />
       </div>
       <div className='flex text-center items-center justify-center mb-8 w-full'>

@@ -21,11 +21,11 @@ const PostDetails = () => {
 
   return (
     <>
-      <div className="container mx-auto px-10 mb-8">
+      <div className="container mx-auto px-4 mb-8">
         <title>Wguides</title>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="col-span-1 lg:col-span-8">
+          <div className="col-span-1 lg:col-span-10">
             <PostDetailed post={post} />
           </div>
           <div className="col-span-1 lg:col-span-4">

@@ -16,10 +16,10 @@ export default function Home({ posts }) {
   let breakpoint = useMediaQuery(640)
 
   return (
-    <div className="container mx-auto px-10 mb-8">
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-8'>
+    <div className="container sm:mx-auto px-4 mb-8">
+      <div className='grid grid-cols-1 lg:grid-cols-12 gap-4'>
         {breakpoint ? <SearchBox placeholder='search' handleChange={handleChange} /> : <></> }
-        <div className='lg:col-span-8 col-span-1'>
+        <div className='lg:col-span-10 col-span-1'>
           {filteredPosts.map((post, index) => <PostCard post={post.node} key={index} />)}
         </div>
         <SideWidgets>

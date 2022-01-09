@@ -14,7 +14,7 @@ const info = ({ links }) => {
   ))
 
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto px-4 mb-8">
       <title>Wguides</title>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className='lg:col-span-12 col-span-1'>

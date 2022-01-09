@@ -10,7 +10,7 @@ const PostCard = ({ post }) => {
           <img
             src={post.featuredImage.url}
             alt={post.title}
-            className='object-top abosolute h-80 w-full object-cover shadow-lg rounded-lg lg:rounded-lg cursor-pointer'
+            className='object-center abosolute h-80 w-full object-cover shadow-lg rounded-lg lg:rounded-lg cursor-pointer'
           />
         </Link>
         <h1 className='transition duration-500 text-center my-4 cursor-pointer hover:text-blue-600 text-3xl font-semibold'>
