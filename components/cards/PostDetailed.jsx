@@ -14,15 +14,15 @@ const PostDetailed = ({ post }) => {
         />
       </div>
       <div className='flex text-center items-center justify-center mb-8 w-full'>
-        <div className='flex items-center justify-center my-auto lg:mb-0 w-auto bg-blue-400 rounded-3xl '>
+        <div className='flex items-center justify-center my-auto mx-2 p-1 lg:mb-0 w-auto bg-blue-400 rounded-3xl '>
           <img
             src={post.author?.photo.url}
             alt={post.author?.name}
             height='40px'
             width='40px'
-            className='align-middle rounded-full border-2 border-red-400'
+            className='m-1 align-middle rounded-full border-2 border-red-400'
           />
-          <p className='inline align-middle text-gray-700 mx-4 text-lg break-words'>Author: {post.author?.name}</p>
+          <p className='inline align-middle text-gray-700 mx-2 text-lg break-words'>Author: {post.author?.name}</p>
         </div>
         <span className='my-auto mx-4 inline '>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
       </div>
