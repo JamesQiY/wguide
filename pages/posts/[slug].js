@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { PostDetailed, CategoriesWidget, PostWidget, } from '../../components';
+import { PostDetailed, SideWidgets, } from '../../components';
 import { getPostDetails } from '../../services';
 
 const PostDetails = () => {
@@ -28,12 +28,7 @@ const PostDetails = () => {
           <div className="col-span-1 lg:col-span-9">
             <PostDetailed post={post} />
           </div>
-          <div className="col-span-1 lg:col-span-4">
-            <div className="relative lg:sticky top-8">
-              <PostWidget />
-              <CategoriesWidget />
-            </div>
-          </div>
+          <SideWidgets/>
         </div>
       </div>
     </>

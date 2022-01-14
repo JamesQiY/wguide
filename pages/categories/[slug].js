@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { CategoriesWidget, PostWidget, PostCard, SearchBox} from '../../components';
+import { SideWidgets, PostCard, SearchBox} from '../../components';
 import { GetCategoriesPosts } from '../../services';
 
 const CategoriesListed = () => {
@@ -44,16 +44,12 @@ const CategoriesListed = () => {
           <div className="col-span-1 lg:col-span-9">
             {filteredPosts.map((post, index) => <PostCard post={post.node} key={index} />)}
           </div>
-          <div className="col-span-1 lg:col-span-4">
-            <div className="relative lg:sticky top-8">
+          <SideWidgets>
               <button onClick={handleSort} className='widget rounded-lg p-4 mt-0'> 
                 {sortState? 'sort acending' : 'sort decending'}
               </button>
               <SearchBox placeholder='search' handleChange={handleChange} />
-              <PostWidget />
-              <CategoriesWidget />
-            </div>
-          </div>
+          </SideWidgets>
         </div>
       </div>
     </>
