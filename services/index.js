@@ -7,7 +7,7 @@ export const getPosts = async () => {
     query MyQuery {
       postsConnection (
         where: {featured: true}
-        orderBy: createdAt_DESC
+        orderBy: createdAt_ASC
         last: 5
         ){
         edges {
