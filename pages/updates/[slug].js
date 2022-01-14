@@ -25,7 +25,7 @@ const UpdateDetails = () => {
         <title>Wguides</title>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="col-span-1 lg:col-span-10">
+          <div className="col-span-1 lg:col-span-9">
             <UpdateDetailed update={update} />
           </div>
           <SideWidgets/>
