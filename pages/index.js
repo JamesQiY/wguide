@@ -19,7 +19,7 @@ export default function Home({ posts }) {
     <div className="container sm:mx-auto px-4 mb-8">
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-4'>
         {breakpoint ? <SearchBox placeholder='search' handleChange={handleChange} /> : <></> }
-        <div className='col-span-1 lg:col-span-9 xl:col-span-8'>
+        <div className='col-span-1 lg:col-span-8'>
           {filteredPosts.map((post, index) => <PostCard post={post.node} key={index} />)}
         </div>
         <SideWidgets> 
