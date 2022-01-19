@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { BsFillSignpostFill } from 'react-icons/bs'
-import moment from 'moment'
 import Link from 'next/link'
 
 import { getRecentPosts } from '../../services'
@@ -25,7 +24,6 @@ const PostWidget = () => {
             mb-2 px-2 cursor-pointer rounded-lg bg-red-400 transition duration-500 hover:bg-red-500 shadow-md'>
             <div className='block my-auto mx-0 h-6 w-6 flex-0 text-white'><BsFillSignpostFill size='25px' /></div>
             <div className='m-2 overflow-hidden'>
-              <p className='m-1 py-1 px-2 inline-block rounded-lg bg-white text-gray-800'>{moment(post.createdAt).format('MMM DD, YYYY')}</p>
               <span className='block my-auto p-auto w-full'>{post.title}</span>
             </div>
           </div>

@@ -200,4 +200,3 @@ export const getUpdateDetails = async (slug) => {
   const result = await request(graphqlAPI, query, {slug})
   return result.update;
 }
-

@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@graphcms/rich-text-react-renderer": "^0.3.2",
+    "googleapis": "^92.0.0",
     "graphql": "^15.7.2",
     "graphql-request": "^3.6.1",
     "html-react-parser": "^1.4.1",
