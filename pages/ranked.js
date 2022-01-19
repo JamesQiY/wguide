@@ -15,9 +15,9 @@ const ranked = ({ data }) => {
           >
             <div className='text-center p-2'>
               <div className=' text-3xl font-bold m-2 p-2'>
-                Ranked Map Information
+                Current Ranked Map Pool
               </div>
-              <span className='m-2'>Check discord for more information</span>
+              <span className='m-2'>Check discord for more information (will update this page in the future)</span>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 row-auto gap-2 gap-y-3 place-content-evenly">
               {data.map((row, index) => {
