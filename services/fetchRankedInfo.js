@@ -6,6 +6,7 @@ const accessScopes = ["https://www.googleapis.com/auth/spreadsheets"];
 
 export default async function fetchData() {
   const client = await authenticateGoogleSheetsClient();
+  if (client === null) return []
   const totalData = {};
   let range = "";
 
@@ -36,8 +37,6 @@ export default async function fetchData() {
   }
 
   const processedRankedMaps = mergeData(totalData.ranked.data.values, totalData.maps.data.values);
-  totalData.rankedInfo = processedRankedMaps;
-
   return processedRankedMaps;
 }
 
@@ -88,9 +87,14 @@ async function authenticateGoogleSheetsClient() {
     accessScopes,
     null
   );
-  await client.authorize();
-  return google.sheets({
-    version: "v4",
-    auth: client,
-  });
+  try {
+    await client.authorize();
+    return google.sheets({
+      version: "v4",
+      auth: client,
+    });
+  } catch (err) {
+    console.log(err)
+    return null;
+  }
 }

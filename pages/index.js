@@ -1,6 +1,7 @@
 import { PostCard, SearchBox, SideWidgets } from '../components'
 import { getPosts } from '../services'
 import React, { useState, useCallback, useEffect } from 'react'
+import Container from '../components/Container'
 
 export default function Home({ posts }) {
   const [search, setsearch] = useState('')
@@ -16,17 +17,15 @@ export default function Home({ posts }) {
   let breakpoint = useMediaQuery(640)
 
   return (
-    <div className="container sm:mx-auto px-4 mb-8">
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-4'>
-        {breakpoint ? <SearchBox placeholder='search' handleChange={handleChange} /> : <></> }
-        <div className='col-span-1 lg:col-span-8'>
-          {filteredPosts.map((post, index) => <PostCard post={post.node} key={index} />)}
-        </div>
-        <SideWidgets> 
-          {!breakpoint ? <SearchBox placeholder='search' handleChange={handleChange} /> : <></> }
-        </SideWidgets>
+    <Container>
+      {breakpoint ? <SearchBox placeholder='search' handleChange={handleChange} /> : <></> }
+      <div className='col-span-1 lg:col-span-8'>
+        {filteredPosts.map((post, index) => <PostCard post={post.node} key={index} />)}
       </div>
-    </div>
+      <SideWidgets> 
+        {!breakpoint ? <SearchBox placeholder='search' handleChange={handleChange} /> : <></> }
+      </SideWidgets>
+    </Container>
   )
 }
 

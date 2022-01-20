@@ -1,37 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
-import { PostDetailed, SideWidgets, } from '../../components';
-import { getPostDetails } from '../../services';
+import { PostDetailed, SideWidgets } from "../../components";
+import { getPostDetails, getAdjacentPosts } from "../../services";
+import AdjacentPost from "../../components/cards/AdjacentPost";
+import Container from "../../components/Container";
 
 const PostDetails = () => {
   const router = useRouter();
-  const [post, setpost] = useState({})
+  const [post, setpost] = useState({});
+  const [related, setrelated] = useState({});
 
   const { slug } = router.query;
   useEffect(() => {
     if (!slug) return;
 
     const fetchData = async () => {
-      const data = await getPostDetails(slug)
-      setpost(data)
-    }
+      const data = await getPostDetails(slug);
+      setpost(data);
+
+      const adjacent = await getAdjacentPosts(data.createdAt, slug);
+      setrelated(adjacent);
+    };
     fetchData();
   }, [slug]);
 
   return (
-    <>
-      <div className="container mx-auto px-4 mb-8">
-        <title>Wguides</title>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="col-span-1 lg:col-span-8">
-            <PostDetailed post={post} />
-          </div>
-          <SideWidgets/>
-        </div>
+    <Container>
+      <div className="col-span-1 lg:col-span-8">
+        <PostDetailed post={post} />
+        <AdjacentPost data={related} />
       </div>
-    </>
+      <SideWidgets />
+    </Container>
   );
 };
 export default PostDetails;
