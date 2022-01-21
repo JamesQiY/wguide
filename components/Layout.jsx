@@ -1,6 +1,7 @@
 import React from 'react'
 import { Header, Footer } from './'
 import Head from 'next/head'
+import TopButton from './TopButton'
 
 const Layout = ({ children }) => {
   return (
@@ -15,6 +16,7 @@ const Layout = ({ children }) => {
       </Head>
       <Header />
       {children}
+      <TopButton/>
       <Footer />
     </>
   )
