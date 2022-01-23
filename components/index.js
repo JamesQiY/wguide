@@ -7,6 +7,7 @@ export {default as Footer} from './Footer'
 export {default as PostDetailed} from './cards/PostDetailed'
 export {default as UpdateDetailed} from './cards/UpdateDetailed'
 export {default as PostCard} from './cards/PostCard'
+export {default as Portrait} from './cards/Portrait'
 
 // widgets
 export {default as SearchBox} from './widgets/SearchBox'

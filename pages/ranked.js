@@ -1,7 +1,8 @@
 import React from "react";
 import Container from "../components/Container";
-import Map from "../components/Map";
-import fetchData from "../services/fetchRankedInfo";
+import { Portrait } from "../components";
+import MapCard from "../components/MapCard";
+import {fetchData} from "../services/fetchRankedInfo";
 
 // data is a list of object that contains map info
 const ranked = ({ data }) => {
@@ -42,27 +43,12 @@ const ranked = ({ data }) => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 row-auto gap-2 gap-y-3 place-content-evenly">
             {data.map((row, index) => {
-              return <Map data={row} key={index} />;
+              return <MapCard data={row} key={index} />;
             })}
           </div>
         </div>
       </div>
     </Container>
-  );
-};
-
-const Portrait = ({ imageSrc, text }) => {
-  return (
-    <>
-      <div className="m-2 p-2 text-center italic text-sm shadow-inner rounded-3xl">
-        <img
-          src={imageSrc}
-          alt={text}
-          className="hidden sm:block max-w-350 overflow-y-hidden object-cover max-w-350"
-        />
-        <p className="m-2">{text}</p>
-      </div>
-    </>
   );
 };
 

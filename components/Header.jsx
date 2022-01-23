@@ -19,6 +19,12 @@ const Header = () => {
           </div>
         </Link>
 
+        <Link href='/allmaps'>
+          <div className='md:float-right mt-4 m-2 md:mt-2 py-1 px-4 align-middle text-gray-800 cursor-pointer border-2 border-gray-800 rounded-xl'>
+            Maps
+          </div>
+        </Link>
+
         <Link href='/ranked'>
           <div className='md:float-right mt-4 m-2 md:mt-2 py-1 px-4 align-middle text-gray-800 cursor-pointer border-2 border-gray-800 rounded-xl'>
             Ranked Info

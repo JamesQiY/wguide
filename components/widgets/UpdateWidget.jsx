@@ -23,7 +23,7 @@ const UpdateWidget = () => {
         <Link href={`/updates/${update.slug}`} key={index}>
           <div
             className="flex flex-row item-center w-full 
-            mb-2 px-2 cursor-pointer rounded-lg bg-red-400 transition duration-500 hover:bg-red-500
+            mb-2 px-2 cursor-pointer rounded-lg bg-indigo-400 transition duration-500 hover:bg-indigo-500
             shadow-md"
           >
             <div className="block my-auto mx-1 h-6 w-6 flex-0 text-white">

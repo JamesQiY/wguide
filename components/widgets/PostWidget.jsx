@@ -21,7 +21,7 @@ const PostWidget = () => {
       {recentPost.map((post, index) => (
         <Link href={`/posts/${post.slug}`} key={index}>
           <div className='flex flex-row item-center w-full 
-            mb-2 px-2 cursor-pointer rounded-lg bg-red-400 transition duration-500 hover:bg-red-500 shadow-md'>
+            mb-2 px-2 cursor-pointer rounded-lg bg-blue-400 transition duration-500 hover:bg-blue-500 shadow-md'>
             <div className='block my-auto mx-0 h-6 w-6 flex-0 text-white'><BsFillSignpostFill size='25px' /></div>
             <div className='m-2 overflow-hidden'>
               <span className='block my-auto p-auto w-full'>{post.title}</span>
