@@ -24,7 +24,7 @@ const MapCard = ({ data }) => {
       </div>
 
       <span className="m-1">
-        {data.code} | version:{data.version}
+        {data.code} | version: {data.version}
       </span>
       <div className="">{data.author}</div>
       <a

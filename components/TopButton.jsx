@@ -28,8 +28,8 @@ const TopButton = () => {
       {showButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-10 right-10 bg-blue-300 rounded-2xl w-16 h-16 z-10 opacity-60 transition-opacity
-            hover:opacity-20">
+          className="fixed bottom-10 right-10 lg:right-20 bg-blue-300 rounded-2xl w-16 h-16 z-10 transition-opacity
+            hover:opacity-60">
           Top
         </button>
       )}

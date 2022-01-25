@@ -15,7 +15,7 @@ const ranked = ({ data }) => {
         >
           <div className="text-center p-2">
             <div className=" text-3xl font-bold m-2 p-2">
-              Current Ranked Map Pool
+              Current Ranked Information
             </div>
             <div className="m-1">Check discord for more information</div>
             <div className="mb-4">(Page is still work in progress)</div>
@@ -28,10 +28,9 @@ const ranked = ({ data }) => {
               <p className="m-2 p-2 text-center font-bold text-lg">
                 Currently Banned Commanders
               </p>
-              <p>
+              <p className=''>
                 They are banned either for their power level being way stronger
-                than other commanders or to encourage more diversity in
-                commander usage
+                than other commanders or to encourage more diversity in commander usage
               </p>
               <div className="flex flex-wrap sm:flex-nowrap items-center justify-center">
                 <Portrait imageSrc={"/caesar_portrait.png"} text={"Caesar"} />
