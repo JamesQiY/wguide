@@ -17,6 +17,7 @@ const RichTextWrapper = ({content}) => {
         li: ({ children }) => <li>{children}</li>,
         table: ({ children }) => <div className='overflow-scroll'><table className='my-2 border-2 '>{children}</table></div>,
         table_cell: ({ children }) => <td className='p-1 border-2'>{children}</td>,
+        img: ({src, title, width, height}) => <img src={src} height={height} width={width} title={title} className='my-2 border-2 rounded-xl shadow-sm bg-transparent'/>,
       }} />
   )
 }
